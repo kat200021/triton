@@ -1,0 +1,5 @@
+tritonclient[grpc]>=2.40.0
+tritonclient[http]>=2.40.0
+protobuf>=3.20.0,<5.0.0
+numpy>=1.21.0
+gevent>=24.0.0

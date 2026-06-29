@@ -1,0 +1,46 @@
+name: "shape_validator"
+backend: "python"
+max_batch_size: 8
+
+input [
+  {
+    name: "INPUT0"
+    data_type: TYPE_FP32
+    dims: [ 3, 224, 224 ]
+  }
+]
+
+output [
+  {
+    name: "INPUT0"
+    data_type: TYPE_FP32
+    dims: [ 3, 224, 224 ]
+  }
+]
+
+parameters: {
+  key: "TARGET_MODEL"
+  value: { string_value: "example_model" }
+}
+
+parameters: {
+  key: "TARGET_MODEL_VERSION"
+  value: { string_value: "1" }
+}
+
+parameters: {
+  key: "FORWARD_ON_SUCCESS"
+  value: { string_value: "false" }
+}
+
+parameters: {
+  key: "STRICT_INPUTS"
+  value: { string_value: "true" }
+}
+
+instance_group [
+  {
+    count: 1
+    kind: KIND_CPU
+  }
+]
